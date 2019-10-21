@@ -1,3 +1,3 @@
 # Javance
 
-.écnava ed AVAJ
+.écnava AVAJ
