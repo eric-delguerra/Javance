@@ -15,7 +15,7 @@
    -->
 
 <form th:action="@{/addCars}"
-      th:object="${carsForm}" method="POST">
+      th:object="${cars}" method="POST">
     Name:
     <input type="text" th:field="*{name}" />
     <br/>

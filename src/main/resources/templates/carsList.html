@@ -15,9 +15,9 @@
             <th>Name</th>
             <th>Model</th>
         </tr>
-        <tr th:each ="cars : ${cars}">
-            <td th:utext="${cars.name}">...</td>
-            <td th:utext="${cars.model}">...</td>
+        <tr th:each ="car : ${cars}">
+            <td th:utext="${car.name}">...</td>
+            <td th:utext="${car.model}">...</td>
         </tr>
     </table>
 </div>
