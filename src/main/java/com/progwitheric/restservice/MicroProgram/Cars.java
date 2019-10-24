@@ -1,6 +1,7 @@
 package com.progwitheric.restservice.MicroProgram;
 
 public class Cars {
+    private int id;
     private String name;
     private String model;
 
@@ -8,9 +9,10 @@ public class Cars {
 
     }
 
-    public Cars(String name, String modele){
+    public Cars(String name, String modele, int id){
         this.model = modele;
         this.name = name;
+        this.id = id;
     }
 
 
@@ -28,5 +30,13 @@ public class Cars {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

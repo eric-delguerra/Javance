@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bulma/css/bulma.css}">
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+<form th:action="@{/modifyCars}"
+      th:object="${car}">
+    Name:
+    <input type="text" th:field="*{name}"/>
+    <br/>
+    Model A MODIF
+    <input type="text" th:field="*{model}"/>
+    <input type="hidden" th:field="*{id}">
+    <br/>
+    <input type="submit"/>
+</form>
+</body>
+</html>

@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8" />
     <title>Cars List</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bulma/css/bulma.css}">
 </head>
 <body>
-<h1>Person List</h1>
+<h1>VOITUre List</h1>
 <a href="addCars">Add cars</a>
 <br/><br/>
 <div>
     <table border="1">
         <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Model</th>
         </tr>
         <tr th:each ="car : ${cars}">
+            <td th:utext="${car.id}">...</td>
             <td th:utext="${car.name}">...</td>
             <td th:utext="${car.model}">...</td>
+            <td><a th:href="@{/editCar/{id}(id=${car.id})}"><button>EDIT</button></a></td>
+            <td><a th:href="@{/deleteCar/{id}(id=${car.id})}"><button>Supprimer</button></a></td>
         </tr>
     </table>
 </div>

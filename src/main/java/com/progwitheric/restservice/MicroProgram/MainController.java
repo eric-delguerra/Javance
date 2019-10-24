@@ -3,9 +3,7 @@ package com.progwitheric.restservice.MicroProgram;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
@@ -65,6 +63,29 @@ public class MainController {
 
         model.addAttribute("errorMessage", errorMessage);
         return "addCars";
+    }
+    @GetMapping(value = {"/editCar/{id}"})
+    public String getModifyCar(Model model, @PathVariable("id") int id){
+
+        model.addAttribute("car", restTemplate.getForObject(url + id, Cars.class));
+        return "editCar";
+    }
+
+
+    @GetMapping(value = { "/modifyCars" })
+    public String modifyCar(@ModelAttribute("cars") Cars car) {
+
+        restTemplate.put(url, car, Cars.class);
+
+        return "redirect:/carsList";
+    }
+
+    @GetMapping(value = { "/deleteCar/{id}"})
+    public String deleteCar(@PathVariable("id") int id){
+
+        restTemplate.delete(url + id);
+
+        return "redirect:/carsList";
     }
 
 }
